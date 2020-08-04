@@ -3,7 +3,7 @@
 [![npm][npm-img]][npm-url]
 [![node][node-img]][node-url]
 
-This transform is an simple resolution for enchancement of 'Import Expression'. It just replace the globby 'Import Expression' with multiple import lines before the default transforms.
+This transform is an simple resolution for enchancement of 'import statement'. It just replace the globby 'import statement' with multiple import lines before the default transforms.
 
 
 ## Status
@@ -31,7 +31,7 @@ module.exports = {
 }
 ```
 
-Example import expressions:
+Example:
 ```ts
 import routes from '../pages/**/route.ts'
 import imgs from '/@/assets/image/**/*.@(jpg|png)'

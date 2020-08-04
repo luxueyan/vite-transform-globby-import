@@ -24,7 +24,7 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
       return (
         !filePath.startsWith(modulesDir) &&
         /\.(vue|js|jsx|ts|tsx)$/.test(filePath) &&
-        lstatSync(ctx.path).isFile()
+        lstatSync(filePath).isFile()
       )
     },
     transform(ctx) {
