@@ -1,9 +1,9 @@
-# vite-plugin-globby-transform ⚡
+# vite-transform-globby-import ⚡
 
 [![npm][npm-img]][npm-url]
 [![node][node-img]][node-url]
 
-This plugin is an simple resolution for enchancement of 'Import Expression'. It just replace the globby 'Import Expression' with multiple import lines before the default transforms.
+This transform is an simple resolution for enchancement of 'Import Expression'. It just replace the globby 'Import Expression' with multiple import lines before the default transforms.
 
 
 ## Status
@@ -14,7 +14,7 @@ In rc.1 and will likely release 1.0 soon.
 
 ### Install (yarn or npm)
 
-`yarn add vite-plugin-globby-transform` or `npm i vite-plugin-globby-transform`
+`yarn add vite-transform-globby-import` or `npm i vite-transform-globby-import`
 
 ### Usage
 
@@ -27,7 +27,7 @@ const sharedConfig = {
 }
 module.exports = {
   ...sharedConfig,
-  transforms: [require('vite-plugin-globby-transform')(sharedConfig)],
+  transforms: [require('vite-transform-globby-import')(sharedConfig)],
 }
 ```
 
@@ -56,7 +56,7 @@ import imgs from '/@/assets/image/**/*.@(jpg|png)'
 MIT
 
 [npm-img]: https://img.shields.io/badge/npm-v1.0.0--rc.1-green.svg
-[npm-url]: https://npmjs.com/package/vite-plugin-globby-import
+[npm-url]: https://npmjs.com/package/vite-transform-globby-import
 [node-img]: https://img.shields.io/node/v/vite.svg
 [node-url]: https://nodejs.org/en/about/releases/
 <!-- [unix-ci-img]: https://circleci.com/gh/vitejs/vite.svg?style=shield
