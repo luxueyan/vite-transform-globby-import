@@ -40,7 +40,7 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
           let groups: string[] = []
           let replaceFiles = files.map((f, i) => {
             groups.push(g1 + i)
-            return `import ${g1 + i} from ${g2}${resolver.fileToRequest(
+            return `import * as ${g1 + i} from ${g2}${resolver.fileToRequest(
               f
             )}${g2}`
           })

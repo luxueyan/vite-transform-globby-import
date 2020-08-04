@@ -37,12 +37,12 @@ import routes from '../pages/**/route.ts'
 import imgs from '/@/assets/image/**/*.@(jpg|png)'
 // These will be replaced to:
 /* 
- * import routes0 from '/@/pages/route.ts'
- * import routes1 from '/@/pages/demo/route.ts'
+ * import * as routes0 from '/@/pages/route.ts'
+ * import * as routes1 from '/@/pages/demo/route.ts'
  * ...
  * const routes = { routes0, routes1, ... }
- * import imgs0 from '/@/assets/image/demo.jpg'
- * import imgs1 from '/@/assets/image/demo/demo.png'
+ * import * as imgs0 from '/@/assets/image/demo.jpg'
+ * import * as imgs1 from '/@/assets/image/demo/demo.png'
  * ...
  * const imgs = { imgs0, imgs1, ... }
  */
