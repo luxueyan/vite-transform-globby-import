@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.4](https://github.com/luxueyan/vite-transform-globby-import/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2020-08-05)
+
+
+### Bug Fixes
+
+* lstat exception catch ([e91407c](https://github.com/luxueyan/vite-transform-globby-import/commit/e91407c1e19c46547d78533ba1023229167397f9))
+
 ## [1.0.0-rc.3](https://github.com/luxueyan/vite-transform-globby-import/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2020-08-04)
 
 
