@@ -21,11 +21,15 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
   return {
     test(ctx) {
       const filePath = ctx.path.replace('\u0000', '') // why some path startsWith '\u0000'?
-      return (
-        !filePath.startsWith(modulesDir) &&
-        /\.(vue|js|jsx|ts|tsx)$/.test(filePath) &&
-        lstatSync(filePath).isFile()
-      )
+      try {
+        return (
+          !filePath.startsWith(modulesDir) &&
+          /\.(vue|js|jsx|ts|tsx)$/.test(filePath) &&
+          lstatSync(filePath).isFile()
+        )
+      } catch {
+        return false
+      }
     },
     transform(ctx) {
       ctx.code = ctx.code.replace(
