@@ -33,8 +33,8 @@ module.exports = {
 
 Example:
 ```ts
-import routes from '../pages/**/route.ts'
-import imgs from '/@/assets/image/**/*.@(jpg|png)'
+import routes from 'globby!../pages/**/route.ts'
+import imgs from 'globby!/@/assets/image/**/*.@(jpg|png)'
 // These will be replaced to:
 /* 
  * import * as routes0 from '/@/pages/route.ts'

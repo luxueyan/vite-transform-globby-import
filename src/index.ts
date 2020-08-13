@@ -19,8 +19,8 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
     config.alias || {}
   )
   return {
-    test(ctx) {
-      const filePath = ctx.path.replace('\u0000', '') // why some path startsWith '\u0000'?
+    test({ path }) {
+      const filePath = path.replace('\u0000', '') // why some path startsWith '\u0000'?
       try {
         return (
           !filePath.startsWith(modulesDir) &&
@@ -31,11 +31,11 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
         return false
       }
     },
-    transform(ctx) {
-      ctx.code = ctx.code.replace(
-        /import\s+(\w+)\s+from\s+(['"])([^'"]+\*+[^'"]+)\2/g,
+    transform({ code, path }) {
+      return code.replace(
+        /import\s+(\w+)\s+from\s+(['"])globby!([^'"]+)\2/g,
         (_, g1, g2, g3) => {
-          const filePath = ctx.path.replace('\u0000', '') // why some path startsWith '\u0000'?
+          const filePath = path.replace('\u0000', '') // why some path startsWith '\u0000'?
           const resolvedFilePath = g3.startsWith('.')
             ? resolver.resolveRelativeRequest(filePath, g3)
             : { pathname: resolver.requestToFile(g3) }
@@ -49,13 +49,13 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
             )}${g2}`
           })
           return (
-            replaceFiles.join('\r\n') +
-            `\r\nconst ${g1} = { ${groups.join(', ')} }\r\n`
+            replaceFiles.join('\n') +
+            `\nconst ${g1} = { ${groups.join(', ')} }\n`
           )
         }
       )
       // console.log(ctx.code)
-      return ctx
+      // return ctx
     }
   }
 }
