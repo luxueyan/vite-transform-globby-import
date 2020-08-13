@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.5](https://github.com/luxueyan/vite-transform-globby-import/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2020-08-13)
+
+
+### Bug Fixes
+
+* support all glob pattern by prepend globby! to path ([4330d26](https://github.com/luxueyan/vite-transform-globby-import/commit/4330d262a26dc66c2a03aa68cc95a12099b04043))
+
 ## [1.0.0-rc.4](https://github.com/luxueyan/vite-transform-globby-import/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2020-08-05)
 
 
