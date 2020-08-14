@@ -1,6 +1,6 @@
 {
   "name": "vite-transform-globby-import",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0-rc.6",
   "description": "A simple globby-import transform of vite",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,9 @@
   },
   "author": "xueyan.lu",
   "license": "MIT",
-  "publishConfig": { "registry": "https://registry.npmjs.org/" },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxueyan/vite-transform-globby-import.git"
@@ -49,5 +51,7 @@
     "vite": "^1.0.0-rc.4",
     "yorkie": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "serialize-javascript": "3"
+  }
 }
