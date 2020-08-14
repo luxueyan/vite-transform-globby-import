@@ -51,7 +51,5 @@
     "vite": "^1.0.0-rc.4",
     "yorkie": "^2.0.0"
   },
-  "dependencies": {
-    "serialize-javascript": "3"
-  }
+  "dependencies": {}
 }
