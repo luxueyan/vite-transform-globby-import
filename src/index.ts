@@ -42,13 +42,13 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
       let result = cache.get(path)
       if (!result) {
         result = code.replace(
-          /import\s+([\w\s{}\*]+)\s+from\s+(['"])globby!([^'"]+)\2/g,
-          (_, g1, g2, g3) => {
+          /import\s+([\w\s{}\*]+)\s+from\s+(['"])globby(\?path)?!([^'"]+)\2/g,
+          (_, g1, g2, g3, g4) => {
             const filePath = path.replace('\u0000', '') // why some path startsWith '\u0000'?
             // resolve path
-            const resolvedFilePath = g3.startsWith('.')
-              ? resolver.resolveRelativeRequest(filePath, g3)
-              : { pathname: resolver.requestToFile(g3) }
+            const resolvedFilePath = g4.startsWith('.')
+              ? resolver.resolveRelativeRequest(filePath, g4)
+              : { pathname: resolver.requestToFile(g4) }
             const files = glob.sync(resolvedFilePath.pathname, { dot: true })
 
             let templateStr = 'import #name# from #file#' // import default
@@ -73,8 +73,9 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
 
             return (
               replaceFiles.join('\n') +
-              // '\n' +
-              // groups.map((v) => `${v[0]}._path = ${v[1]}`).join('\n') +
+              (g3
+                ? '\n' + groups.map((v) => `${v[0]}._path = ${v[1]}`).join('\n')
+                : '') +
               `\nconst ${name} = { ${groups.map((v) => v[0]).join(',')} }\n`
             )
           }
