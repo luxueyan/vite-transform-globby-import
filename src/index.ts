@@ -42,7 +42,7 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
       let result = cache.get(path)
       if (!result) {
         result = code.replace(
-          /import\s+([\w\s{}\*]+)\s+from\s+(['"])globby(\?path)?!([^'"]+)\2/g,
+          /import\s+([\w\s{}*]+)\s+from\s+(['"])globby(\?path)?!([^'"]+)\2/g,
           (_, g1, g2, g3, g4) => {
             const filePath = path.replace('\u0000', '') // why some path startsWith '\u0000'?
             // resolve path
