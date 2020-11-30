@@ -13,7 +13,7 @@ In rc.1 and will likely release 1.0 soon.
 
 ### Install (yarn or npm)
 
-`yarn add vite-transform-globby-import` or `npm i vite-transform-globby-import`
+`yarn add -D vite-transform-globby-import or npm i --dev vite-transform-globby-import`
 
 ### Usage
 
