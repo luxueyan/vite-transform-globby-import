@@ -9,7 +9,8 @@ const modulesDir: string = join(process.cwd(), '/node_modules/')
 interface SharedConfig {
   root?: string
   alias?: Record<string, string>
-  resolvers?: Resolver[]
+  resolvers?: Resolver[],
+  nameProvider(path: string): string
 }
 
 function template(template: string) {
@@ -25,6 +26,7 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
     config.alias || {}
   )
   const cache = new Map()
+  const getName = (filePath: string, defaultName: string) => config?.nameProvider != undefined ?  config?.nameProvider(filePath) : defaultName
   return {
     test({ path }) {
       const filePath = path.replace('\u0000', '') // why some path startsWith '\u0000'?
@@ -66,9 +68,10 @@ const globbyTransfrom = function (config: SharedConfig): Transform {
 
             const groups: Array<string>[] = []
             const replaceFiles = files.map((f, i) => {
+              const fileName = getName(f, g1 + i)
               const file = g2 + resolver.fileToRequest(f) + g2
-              groups.push([name + i, file])
-              return temRender({ name: name + i, file })
+              groups.push([fileName, file])
+              return temRender({ name: fileName, file })
             })
 
             return (
