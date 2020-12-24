@@ -13,7 +13,7 @@ In rc.1 and will likely release 1.0 soon.
 
 ### Install (yarn or npm)
 
-`yarn add vite-transform-globby-import` or `npm i vite-transform-globby-import`
+`yarn add vite-transform-globby-import -D` or `npm i vite-transform-globby-import -D`
 
 ### Usage
 
@@ -34,7 +34,7 @@ Example:
 
 ```ts
 import routes from 'globby!../pages/**/route.ts'
-// will be replaced to 
+// will be replaced with 
 /*
  * import routes0 from '/@/pages/route.ts'
  * import routes1 from '/@/pages/demo/route.ts'
@@ -43,7 +43,7 @@ import routes from 'globby!../pages/**/route.ts'
  *
  */
 import * as routes from 'globby!../pages/**/route.ts'
-// will be replaced to 
+// will be replaced with 
 /*
  * import * as routes0 from '/@/pages/route.ts'
  * import * as routes1 from '/@/pages/demo/route.ts'
@@ -52,7 +52,7 @@ import * as routes from 'globby!../pages/**/route.ts'
  *
  */
 import { route } from 'globby!../pages/**/route.ts'
-// will be replaced to 
+// will be replaced with 
 /*
  * import { route as route0 } from '/@/pages/route.ts'
  * import { route as route1 } from '/@/pages/demo/route.ts'
@@ -62,7 +62,7 @@ import { route } from 'globby!../pages/**/route.ts'
  */
 
 import { route as demo } from 'globby!../pages/**/route.ts'
-// will be replaced to 
+// will be replaced with 
 /*
  * import { route as demo0 } from '/@/pages/route.ts'
  * import { route as demo1 } from '/@/pages/demo/route.ts'
@@ -71,7 +71,7 @@ import { route as demo } from 'globby!../pages/**/route.ts'
  *
  */
 import imgs from 'globby!/@/assets/image/**/*.@(jpg|png)'
-// These will be replaced to:
+// These will be replaced with:
 /*
  * import imgs0 from '/@/assets/image/demo.jpg'
  * import imgs1 from '/@/assets/image/demo/demo.png'
