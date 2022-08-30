@@ -48,7 +48,7 @@
     "prettier": "^2.0.5",
     "standard-version": "^8.0.2",
     "typescript": "^3.9.7",
-    "vite": "^1.0.0-rc.4",
+    "vite": "^2.9.13",
     "yorkie": "^2.0.0"
   },
   "dependencies": {}
